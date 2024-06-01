@@ -100,7 +100,7 @@ CREATE TABLE direccion_oficina (
 
 CREATE TABLE empleado (
     id_empleado INT(15) PRIMARY KEY,
-    id_oficina INT(15) NOT NULL,
+    id_oficina INT(15) ,
     nombre VARCHAR(50) NOT NULL,
     apellido1 VARCHAR(50) NOT NULL,
     apellido2 VARCHAR(50),
@@ -164,13 +164,15 @@ CREATE TABLE telefono_cliente (
 	    id_estado INT(15) NOT NULL,
 	    observaciones TEXT,
 	    id_cliente INT(15),
+	    id_empleado INT(15),
 	    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
-	    FOREIGN KEY (id_estado) REFERENCES estado(id_estado)
+	    FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
+	    FOREIGN KEY (id_empleado) REFERENCES empleado(id_empleado)
 	);
 	
 	CREATE TABLE detalle_pedido (
 	    id_pedido INT(15) NOT NULL,
-	    id_producto INT(15) NOT NULL,
+	    id_producto INT(15),
 	    cantidad INT(11) NOT NULL,
 	    precio_unidad DECIMAL(15,2) NOT NULL,
 	    numero_linea SMALLINT(6) NOT NULL,

@@ -189,7 +189,7 @@ INSERT INTO empleado (id_empleado, id_oficina, nombre, apellido1, apellido2, ext
 	(3, 2, 'Alice', 'Johnson', NULL, '2001', 'alice.johnson@example.com', 1, 'Subdirector Ventas'),
 	(4, 2, 'Bob', 'Williams', NULL, '2002', 'bob.williams@example.com', 2, 'Representante de Ventas'),
 	(5, 3, 'Charlie', 'Brown', NULL, '3001', 'charlie.brown@example.com', 3, 'Representante de Ventas'),
-	(6, 3, 'David', 'Davis', NULL, '3002', 'david.davis@example.com', 4, 'Secretaria'),
+	(6, NULL, 'David', 'Davis', NULL, '3002', 'david.davis@example.com', 4, 'Secretaria'),
 	(7, 1, 'Eve', 'Miller', NULL, '1003', 'eve.miller@example.com', 1, 'Director Oficina'),
 	(8, 2, 'Frank', 'Wilson', NULL, '2003', 'frank.wilson@example.com', 7, 'Representante de Ventas'),
 	(9, 3, 'Grace', 'Moore', NULL, '3003', 'grace.moore@example.com', 7, 'Representante de Ventas'),
@@ -199,20 +199,20 @@ INSERT INTO empleado (id_empleado, id_oficina, nombre, apellido1, apellido2, ext
 INSERT INTO cliente (id_cliente, nombre_cliente, nombre_contacto, apellido_contacto, fax, id_ciudad, id_empleado_rep_ventas, limite_credito) VALUES
 	(1, 'TechCorp', 'Carlos', 'Lopez', '555-0001', 1, 7, 50000.00),
 	(2, 'GreenFields', 'Ana', 'Martinez', '555-0002', 2, 9, 30000.00),
-	(3, 'Sunshine Ltd.', 'Miguel', 'Hernandez', '555-0003', 3, 5, 40000.00),
+	(3, 'Sunshine Ltd.', 'Miguel', 'Hernandez', '555-0003', 13, 5, 40000.00),
 	(4, 'OceanBlue', 'Laura', 'Gonzalez', '555-0004', 4, 8, 45000.00),
 	(5, 'SkyHigh Inc.', 'Daniel', 'Perez', '555-0005', 5, 10, 60000.00),
-	(6, 'MountainView', 'Sofia', 'Rodriguez', '555-0006', 6, 6, 35000.00),
+	(6, 'MountainView', 'Sofia', 'Rodriguez', '555-0006', 6, 5, 35000.00),
 	(7, 'RiverSide', 'Julio', 'Garcia', '555-0007', 7, 8, 30000.00),
 	(8, 'StarLight', 'Natalia', 'Fernandez', '555-0008', 8, 9, 25000.00),
 	(9, 'Galaxy Co.', 'Luis', 'Martinez', '555-0009', 9, 5, 55000.00),
-	(10, 'Thunderbolt', 'Carlos', 'Lopez', '555-0010', 10, 10, 50000.00),
+	(10, 'Thunderbolt', 'Carlos', 'Lopez', '555-0010', 13, 10, 50000.00),
 	(11, 'WindPower', 'Ana', 'Martinez', '555-0011', 11, 7, 30000.00),
 	(12, 'FireLight', 'Miguel', 'Hernandez', '555-0012', 12, 9, 40000.00),
 	(13, 'EarthBound', 'Laura', 'Gonzalez', '555-0013', 13, 5, 45000.00),
 	(14, 'WaveMotion', 'Daniel', 'Perez', '555-0014', 14, 8, 60000.00),
 	(15, 'QuantumTech', 'Sofia', 'Rodriguez', '555-0015', 15, 10, 35000.00),
-	(16, 'AeroDynamics', 'Julio', 'Garcia', '555-0016', 16, 6, 30000.00),
+	(16, 'AeroDynamics', 'Julio', 'Garcia', '555-0016', 16, 8, 30000.00),
 	(17, 'FusionCore', 'Natalia', 'Fernandez', '555-0017', 17, 8, 25000.00);
 
 
@@ -260,20 +260,20 @@ INSERT INTO telefono_cliente (id_telefono_cliente, id_telefono, id_cliente) VALU
 INSERT INTO pago (id_transaccion, id_cliente, forma_pago, fecha_pago, total)
 VALUES
     (1, 1, 'Tarjeta de crédito', '2008-05-31', 150.00),
-    (2, 2, 'Transferencia bancaria', '2024-05-30', 200.00),
+    (2, 1, 'Transferencia bancaria', '2024-05-30', 200.00),
     (3, 3, 'Efectivo', '2024-05-29', 180.50),
     (4, 4, 'Tarjeta de débito', '2024-05-28', 220.00),
-    (5, 5, 'Cheque', '2024-05-27', 190.00),
+    (5, 5, 'Paypal', '2008-05-27', 190.00),
     (6, 6, 'Transferencia bancaria', '2008-05-26', 205.00),
     (7, 7, 'Efectivo', '2024-05-25', 250.00),
     (8, 8, 'Tarjeta de crédito', '2024-05-24', 170.00),
     (9, 9, 'Tarjeta de débito', '2024-05-23', 230.00),
-    (10, 10, 'Cheque', '2024-05-22', 195.00),
+    (10, 10, 'Paypal', '2008-05-22', 195.00),
     (11, 11, 'Efectivo', '2024-05-21', 210.00),
     (12, 12, 'Transferencia bancaria', '2024-05-20', 185.00),
     (13, 13, 'Tarjeta de crédito', '2024-05-19', 225.00),
     (14, 14, 'Tarjeta de débito', '2024-05-18', 240.00),
-    (15, 15, 'Cheque', '2008-05-17', 175.00),
+    (15, 15, 'Paypal', '2008-05-17', 175.00),
     (16, 16, 'Efectivo', '2024-05-16', 195.00),
     (17, 17, 'Transferencia bancaria', '2024-05-15', 260.00);
    
@@ -281,31 +281,31 @@ VALUES
 INSERT INTO estado (id_estado, estado)
 VALUES
     (1, 'En proceso'),
-    (2, 'En espera de pago'),
+    (2, 'Rechazado'),
     (3, 'Enviado'),
     (4, 'Entregado');
 
    
--- Inserciones para la tabla pedido
-INSERT INTO pedido (id_pedido, fecha_pedido, fecha_esperada, fecha_entrega, id_estado, observaciones, id_cliente)
+-- Inserciones para la tabla pedido con id_empleado
+INSERT INTO pedido (id_pedido, fecha_pedido, fecha_esperada, fecha_entrega, id_estado, observaciones, id_cliente, id_empleado)
 VALUES
-    (1, '2024-05-01', '2024-05-02', '2024-04-03', 1, 'Pedido urgente', 1),
-    (2, '2009-05-02', '2024-05-03', '2024-05-04', 2, 'Pedido regular', 2),
-    (3, '2024-05-03', '2024-05-04', '2024-05-05', 3, 'Pedido urgente', 3),
-    (4, '2024-05-04', '2024-05-05', '2024-01-06', 1, 'Pedido regular', 4),
-    (5, '2009-05-05', '2024-05-06', '2024-04-07', 2, 'Pedido urgente', 5),
-    (6, '2009-05-06', '2024-05-07', '2024-05-08', 3, 'Pedido regular', 6),
-    (7, '2024-05-07', '2024-05-08', '2024-05-09', 1, 'Pedido urgente', 7),
-    (8, '2024-05-08', '2024-05-09', '2024-01-10', 2, 'Pedido regular', 8),
-    (9, '2024-05-09', '2024-05-10', '2024-01-11', 3, 'Pedido urgente', 9),
-    (10, '2024-05-10', '2024-05-11', '2024-04-12', 1, 'Pedido regular', 10),
-    (11, '2009-05-11', '2024-05-12', '2024-05-13', 2, 'Pedido urgente', 11),
-    (12, '2024-05-12', '2024-05-13', '2024-01-14', 3, 'Pedido regular', 12),
-    (13, '2024-05-13', '2024-05-14', '2024-04-15', 1, 'Pedido urgente', 13),
-    (14, '2009-05-14', '2024-05-15', '2024-05-16', 2, 'Pedido regular', 14),
-    (15, '2024-05-15', '2024-05-16', '2024-04-17', 3, 'Pedido urgente', 15),
-    (16, '2024-05-16', '2024-05-17', '2024-01-18', 1, 'Pedido regular', 16),
-    (17, '2024-05-17', '2024-05-18', '2024-05-19', 2, 'Pedido urgente', 17);
+    (1, '2024-05-01', '2024-05-02', '2024-04-03', 1, 'Pedido urgente', 1, 1),
+    (2, '2009-05-02', '2024-05-03', '2024-05-04', 2, 'Pedido regular', 2, 2),
+    (3, '2024-05-03', '2024-05-04', '2024-05-05', 3, 'Pedido urgente', 3, 3),
+    (4, '2024-05-04', '2024-05-05', '2024-01-06', 1, 'Pedido regular', 4, 4),
+    (5, '2009-05-05', '2024-05-06', '2024-04-07', 2, 'Pedido urgente', 5, 5),
+    (6, '2009-05-06', '2024-05-07', '2024-05-08', 3, 'Pedido regular', 6, 6),
+    (7, '2024-05-07', '2024-05-08', '2024-05-09', 1, 'Pedido urgente', 7, 7),
+    (8, '2024-05-08', '2024-05-09', '2024-01-10', 2, 'Pedido regular', 8, 8),
+    (9, '2024-05-09', '2024-05-10', '2024-01-11', 3, 'Pedido urgente', 9, 9),
+    (10, '2008-05-10', '2008-05-11', '2008-04-12', 1, 'Pedido regular', 10, 10),
+    (11, '2009-05-11', '2024-05-12', '2024-05-13', 2, 'Pedido urgente', 11, 1),
+    (12, '2024-05-12', '2024-05-13', '2024-01-14', 3, 'Pedido regular', 12, 2),
+    (13, '2024-05-13', '2024-05-14', '2024-04-15', 1, 'Pedido urgente', 13, 3),
+    (14, '2009-05-14', '2024-05-15', '2024-05-16', 2, 'Pedido regular', 14, 4),
+    (15, '2008-05-15', '2008-05-16', '2008-04-17', 3, 'Pedido urgente', 15, 5),
+    (16, '2024-05-16', '2024-05-17', '2024-01-18', 1, 'Pedido regular', 16, 6),
+    (17, '2008-05-17', '2008-05-18', '2008-05-19', 2, 'Pedido urgente', 17, 7);
    
    
    
